@@ -8,11 +8,11 @@ query {
       { path: "CompanyDataScore.ScorePublishedDate", comparison: greaterThan, value: "2023-11-31T12:00:00" } # UTC. Vary this as required to reflect your last poll.
     ]}
     first: 30 # Paging value. Required. Please keep to < 500,
-    #skip: 30 # Optional value to skip completed.
+    #skip: 30 # Optional value to skip completed when paging.
   ) {
     totalCount
-    edges {
-      node {
+    edges { # Required projection element
+      node { # Required projection element
         Company: name
         Ticker: primaryTicker { name }
         CIKCode: cIK
